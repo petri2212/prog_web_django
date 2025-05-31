@@ -12,7 +12,7 @@ function autocomplete(inp, arr) {
     this.parentNode.appendChild(a);
 
     for (i = 0; i < arr.length; i++) {
-      if (arr[i].toUpperCase().includes(val.toUpperCase())) {
+      if (arr[i] && typeof arr[i] === 'string' && arr[i].toUpperCase().includes(val.toUpperCase())) {
         b = document.createElement("DIV");
 
         // Mostra solo la parte di testo corrispondente alla ricerca
