@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'museo',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,8 @@ WSGI_APPLICATION = 'src.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nome_del_tuo_database',
-        'USER': 'admin',
+        'NAME': 'fadein',
+        'USER': 'postgres',
         'PASSWORD': 'admin',
         'HOST': 'localhost',  # o IP del server DB
         'PORT': '5432',       # porta predefinita PostgreSQL
