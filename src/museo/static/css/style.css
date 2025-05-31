@@ -1,0 +1,811 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #111827;
+    overflow-y: hidden;
+}
+
+.griglia {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav filtro"
+        "nav contenuto"
+        "nav paginazione";
+    grid-template-columns: 190px 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    height: 100vh;
+}
+
+nav ol {
+    list-style-type: none;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+
+nav ol li a {
+    display: block;
+    color: #212529;
+    text-align: center;
+    position: relative;
+    left: -10px;
+    padding: 20px;
+    width: 140px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    justify-content: space-between;
+
+}
+
+nav ol li a:hover,
+nav ol li a.active {
+    color: #212529;
+    padding: 20px 40px;
+    font-weight: bolder;
+    transition: all 0.3s;
+    -webkit-transition: 0.3s ease;
+}
+
+a {
+    color: #212529;
+}
+
+a:hover {
+    color: #597188;
+}
+
+h1 {
+    font-size: 200%;
+    color: #f6f8f9;
+}
+
+#VivoMorto.myInput,
+#Tipo.myInput {
+    width: 210px;
+    height: 31px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+.myInput.select,
+.myInput.update,
+.myInput.delete {
+    width: 11%;
+    height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 4px 8px;
+    position: relative;
+    
+}
+
+
+#t1s.myInput,
+#aas.myInput,
+#ars.myInput {
+    width: 15.2%;
+    text-align: center;
+}
+
+
+
+.myInput {
+    width: 210px;
+    height: 25px;
+    position: relative;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 3px;
+    margin-top: 10px;
+    border: 2px solid #2F3C48;
+    text-align: center;
+}
+
+
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #ccc;
+    margin: 20px 0;
+    width: 80%;
+    position: relative;
+    left: 10%;
+}
+
+.invisible {
+    background-color: #F8F9FA;
+}
+
+
+header {
+    grid-area: header;
+    background-color: #2F3C48;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #F8F9FA;
+}
+
+.filtro {
+    grid-area: filtro;
+    background-color: #F8F9FA;
+    padding: 15px;
+    border: 1px solid #E5E7EB;
+}
+
+.contenuto {
+    grid-area: contenuto;
+    background-color: #fcfcfc;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid #E5E7EB;
+    overflow-y: auto;
+}
+
+.paginazione{
+    grid-area: paginazione;
+    background-color: rgba(252, 252, 252, 0.8);
+    font-size: 18px;
+    padding-bottom: -10px;
+    border: 1px solid #E5E7EB;
+    padding-top: 20px;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0%;
+    color: #F8F9FA;
+    background-color: #2F3C48;
+    padding: 6px;
+}
+
+tr th {
+    position: relative;
+    padding: 10px 10px;
+    margin: 100px;
+}
+
+tr td {
+    padding: 5px 30px;
+    letter-spacing: 0.03em;
+}
+
+.invio {
+    color: #fff;
+    padding-top: 100px;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #434f5a;
+    background: #434f5a;
+    margin-top: 10px;
+    top: -1px;
+    height: 32px;
+}
+
+.invio.sub {
+    min-width: 180px;
+    border: 2px solid #434f5a;
+    background: #434f5a;
+}
+.invio.pag {
+    min-width: auto;
+    border: 2px solid #434f5a;
+    background: #434f5a;
+}
+
+.invio.canc {
+    min-width: 100px;
+    border: 2px solid #d77f53;
+    background: #d77f53;
+}
+
+.invio#idInvioInsert {
+    min-width: 180px;
+    border: 2px solid #4da33f;
+    background: #4da33f;
+}
+
+.invio#idInvioUpdate {
+    min-width: 180px;
+    border: 2px solid #3b9895;
+    background: #3b9895;
+}
+
+.invio.InvioDelete {
+    min-width: 180px;
+    border: 2px solid #a53a3a;
+    background: #a53a3a;
+}
+
+.invio.sub:hover {
+    background: #fff;
+    color: #434f5a
+}
+
+.invio.pag:hover {
+    background: #fff;
+    color: #434f5a
+}
+
+.invio.canc:hover {
+    background: #fff;
+    color: #d77f53;
+}
+
+.invio#idInvioInsert:hover {
+    background: #fff;
+    color: #4da33f;
+}
+
+.invio#idInvioUpdate:hover {
+    background: #fff;
+    color: #3b9895;
+}
+
+.invio.InvioDelete:hover {
+    background: #fff;
+    color: #a53a3a;
+}
+
+#pagSx{
+    position: relative;
+    top: -38px;
+    left: -150px;
+}
+
+#pagDx{
+    position: relative;
+    top: -38px;
+    right: -150px;
+}
+
+
+.tabella {
+    margin-top: 65px;
+    margin-bottom: 5px;
+    margin-right: 18px;
+}
+
+.tabella li {
+    border-radius: 3px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabella .testata {
+    border: 1px solid #434f5a;
+    box-shadow: 0px 0px 1px 0px rgba(67, 79, 90, 0.5);
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.tabella .riga {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.tabella .col-1 {
+    flex-basis: 10%;
+}
+.tabella .col {
+    flex-basis: 50%;
+}
+
+.fissa {
+    position: fixed;
+    display: flex;
+    margin-top: -70px;
+}
+
+.fissa .testata {
+    width: calc(100vw - 314px);
+}
+
+.tornaSu {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    color: #d77f53;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.tornaSu:hover {
+    color: #ec9f75;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease;
+}
+
+.tornaSu.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+/*Overlay CRUD*/
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    overflow-y: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+#overlay-quit {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    z-index: 100;
+    overflow-y: hidden;
+}
+
+#contenutoOvelay {
+    position: fixed;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 101;
+    border-radius: 3px;
+    text-align: center;
+    box-shadow: 0px 0px 100px 0px rgba(67, 79, 90, 1);
+    overflow-y: auto;
+}
+
+#selezionaOperazione{
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#messaggioUscita {
+    box-shadow: 0px 0px 10px 0px rgba(215, 127, 83, 1);
+    background-color: #ec9f75;
+    border-radius: 3px;
+    width: 70%;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    display: block;
+    position: relative;
+    left: 15%;
+    top: 11%;
+    z-index: 101;
+    opacity: 1;
+}
+
+#query {
+    position: relative;
+    top: 20px;
+    margin-bottom: -100px;
+    padding-bottom: 120px;
+    z-index: 100;
+    overflow-y: hidden;
+}
+
+
+
+/*Overlay delete e messaggio*/
+.overlayDelete {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 102;
+    overflow-y: hidden;
+
+}
+
+.contenutoOvelayDelete {
+    position: fixed;
+    width: 40%;
+    height: 30%;
+    top: 30%;
+    left: 30%;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 103;
+    border-radius: 3px;
+    text-align: center;
+    border: 3px solid rgba(215, 83, 83, 1);
+    box-shadow: 0px 0px 100px 0px rgba(215, 83, 83, 1);
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+}
+
+.contenutoOvelayMessaggio {
+    position: fixed;
+    width: 40%;
+    height: 30%;
+    top: 30%;
+    left: 30%;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 103;
+    border-radius: 3px;
+    text-align: center;
+    border: 3px solid rgb(240, 201, 44);
+    box-shadow: 0px 0px 100px 0px rgb(240, 240, 44);
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+}
+
+.rosso {
+    color: rgb(215, 83, 83);
+}
+
+.textDelete {
+    position: relative;
+    top: 8%;
+}
+
+#textMessaggio {
+    position: relative;
+    top: 8%;
+}
+
+/*Pulsante di selezione nell'overlay*/
+
+select,
+::picker(select) {
+    appearance: base-select;
+}
+
+
+select {
+    border: 2px solid #434f5a;
+    transition: 0.4s;
+    color: gray;
+    text-size-adjust: 10px;
+}
+
+#contenutoOvelay #crud {
+    width: 220px;
+    height: fit-content;
+    border: 2px solid #434f5a;
+    background: #434f5a;
+    padding: 10px;
+    transition: 0.4s;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+select:hover {
+    background: #ffffff;
+    color: #434f5a;
+}
+
+#contenutoOvelay #crud:hover {
+    background: #ffffff;
+    color: #434f5a;
+}
+
+
+select::picker-icon {
+    size: 10px;
+    color: #434f5a;
+    transition: 0.4s rotate;
+}
+
+
+#contenutoOvelay #crud::picker-icon {
+    color: #9dbddb;
+    transition: 0.4s rotate;
+}
+
+select:open::picker-icon {
+    rotate: 180deg;
+}
+
+::picker(select) {
+    border: none;
+}
+
+option {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    border: 2px solid #ddd;
+    background: #fff;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+option:first-of-type {
+    border-radius: 8px 8px 0 0;
+}
+
+option:last-of-type {
+    border-radius: 0 0 8px 8px;
+}
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}
+
+option:nth-of-type(odd) {
+    background: #fff;
+}
+
+option:hover,
+option:focus {
+    background: #697c8c;
+    color: #fff;
+}
+
+option .icon {
+    font-size: 1.6rem;
+    text-box: trim-both cap alphabetic;
+}
+
+selectedcontent .icon {
+    display: none;
+}
+
+option:checked {
+    font-style: italic;
+}
+
+#contenutoOvelay #crud option::checkmark {
+    font-style: normal;
+    order: 1;
+    margin-left: auto;
+    content: "✔";
+}
+
+::picker(select) {
+    opacity: 0;
+    transition: all 0.4s allow-discrete;
+}
+
+::picker(select):popover-open {
+    opacity: 1;
+}
+
+@starting-style {
+    ::picker(select):popover-open {
+        opacity: 0;
+    }
+}
+
+
+.tabellaOver#tabellaOverInsert {
+    width: 93%;
+    justify-content: space-between;
+}
+
+.tabellaOver#tabellaOverUpdate {
+    width: 15%;
+    text-align: center;
+    position: relative;
+    left: 39.8%;
+}
+
+.tabellaOver li {
+    border-radius: 3px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabellaOver .testataOver {
+    border: 1px solid #434f5a;
+    box-shadow: 0px 0px 1px 0px rgba(67, 79, 90, 0.5);
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 15px;
+}
+
+.tabellaOver .riga {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.tabellaOver .colOver {
+    flex-basis: 100%;
+    justify-content: space-between;
+}
+
+.tabellaOver#tabellaOverUpdate .colOver {
+    display: flex;
+    justify-content: center;
+}
+
+#risposta {
+    display: block;
+    height: 40px;
+    margin-top: 10%;
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#barra {
+    width: 0%;
+    height: 4px;
+    background: #ec9f75;
+    transition: width 0.5s linear;
+    position: relative;
+    left: 39.9%;
+    top: 0;
+}
+
+
+/* login */
+
+.myInputLogin {
+    width: 310px;
+    height: 45px;
+    position: relative;
+    align-items: center;
+    font-size: 25px;
+    border-radius: 3px;
+    margin-top: 10px;
+    border: 2px solid #2F3C48;
+    text-align: center;
+}
+
+#login {
+    position: relative;
+    top: 50%;
+    transform: translate(0,-70%);
+}
+
+#loginText {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.invio.login {
+    min-width: 316px;
+    height: 50px;
+    border: 2px solid #434f5a;
+    border-radius: 3px;
+    background: #434f5a;
+    font-size: 20px;
+}
+
+.invio.login:hover {
+    background: #fff;
+    color: #434f5a
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-5px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+    border: 1px solid red;
+}
+
+#messaggioLogin{
+    position: relative;
+    opacity: 1;
+    margin-top: 10%;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+.autocompleteInput {
+  border: 2px solid #2F3C48;
+  background-color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+}
+.autocompleteInput[type=text] {
+  background-color: #ffffff;
+  width: 200px;
+  height: 25px;
+  border: 2px solid #2F3C48;
+  border-radius: 3px;
+}
+
+.autocompleteInput[type=text].opera {
+  background-color: #ffffff;
+  width: 600px;
+  height: 25px;
+  border: 2px solid #2F3C48;
+  border-radius: 3px;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 2px solid #f1f1f1;
+  border-bottom: none;
+  border-top: none;
+  z-index: 1000;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: -1px;
+  right: 0;
+  width: 100%;
+}
+.autocomplete-items div {
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 2px solid #d4d4d4;
+  padding: 8px;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #2F3C48;
+  color: #ffffff;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: #2F3C48 !important;
+  color: #ffffff;
+}
