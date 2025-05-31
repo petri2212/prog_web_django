@@ -26,10 +26,10 @@
 				<div class="autocomplete">
                     <input id="n1" type="text" name="Descrizione" class="autocompleteInput" placeholder="Cerca descrizione...">
                 </div>
-                <!-- 
+                
 				<input type="submit" class="invio sub" value="Cerca" id="idInvio" onclick="cerca(event)" />
 				<input type="button" class="invio canc" value="Cancella" id="idCanc" onclick="canc(event)" />
-                -->
+               
 			</form>
 		</div>
 
@@ -37,22 +37,22 @@
 		<div class="paginazione">
 			<div>
 				<div id="paginazione"></div>
-                <!--
+                
 				<button type="button" class="invio pag" id="pagSx" onclick="aggiornaPagina('-')">1</button>
 
 				<button type="button" class="invio pag" id="pagDx" onclick="aggiornaPagina('+')">2</button>
-                 -->
+               
 			</div>
 		</div>
 	</div>
-<!-- 
+
 	<a class="tornaSu"><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></a>
-	<script src="../js/arrowUp.js" defer></script>
-	<script src="../js/pagine.js" defer></script>
-	<script src="../js/suggest.js" defer></script>
-	<script src="../js/fetchTema.js"></script>
-	<script src="../js/reference.js" defer></script>
--->
+	<script src="{% static 'js/arrowUp.js' %}" defer></script>
+	<script src="{% static 'js/pagine.js' %}" defer></script>
+	<script src="{% static 'js/suggest.js' %}" defer></script>
+	<script src="{% static 'js/fetchTema.js' %}"></script>
+	<script src="{% static 'js/reference.js' %}" defer></script>
+
 </body>
 
 </html>
