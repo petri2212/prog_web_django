@@ -318,7 +318,7 @@ function generareAutoriArray(event) {
    console.log(obj)
    console.log(formData)
 
-   fetch('/museo/queries/select_opera/', {
+   fetch('/museo/queries/select_autore/', {
 
       method: 'POST',
       header: {
@@ -448,7 +448,7 @@ function inserisci() {
 
    aggiornaCerca();
 
-   fetch('/museo/queries/select_opera/', {
+   fetch('/museo/queries/insert_opera/', {
 
       method: 'POST',
       header: {
@@ -618,7 +618,7 @@ function getNomeAutori(idAutoriOpere, event) {
 
    const form = document.querySelector("#form");
    const formData = new FormData(form);
-
+   const obj = Object.fromEntries(formData)
    return fetch('/museo/queries/select_autore/', {
       method: 'POST',
       header: {

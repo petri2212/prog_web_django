@@ -6,7 +6,6 @@ from django.db.models import Count
 import json
 from django.db import connection
 
-
 def tema(request):
   return render(request, 'tema.html')
 
@@ -274,6 +273,204 @@ def select_opera(request):
                 })
 
             return JsonResponse(response_data, safe=False)
+
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+
+    return JsonResponse({'error': 'Metodo non consentito'}, status=405)
+
+
+@csrf_exempt
+def insert_opera(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+
+            Autore = data.get('autoreSelect')
+            Titolo = data.get('titoloSelect')
+            AnnoAcquisto = data.get('AnnoAquistoSelect')
+            AnnoRealizzazione = data.get('AnnoRealizzazioneSelect')
+            Tipo = data.get('tipoSelect')
+            NomeSala = data.get('NumeroSalaSelect')
+
+            # Estrai ID Autore (prima del trattino)
+            idAutore = Autore.split('-')[0].strip() if Autore else None
+
+            with connection.cursor() as cursor:
+                # Trova numero sala
+                cursor.execute("SELECT numero FROM sala WHERE nome = %s", [NomeSala])
+                row = cursor.fetchone()
+                if not row:
+                    return JsonResponse({'error': 'Sala non trovata'}, status=400)
+                NumeroSala = row[0]
+
+                # Trova max codice
+                cursor.execute("SELECT MAX(codice) FROM opera")
+                row = cursor.fetchone()
+                max_codice = (row[0] or 0) + 1
+
+                # Inserisci nuova opera
+                insert_query = """
+                    INSERT INTO opera (codice, autore, titolo, annoacquisto, annorealizzazione, tipo, espostainsala)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s)
+                """
+                cursor.execute(insert_query, [
+                    max_codice,
+                    idAutore,
+                    Titolo,
+                    AnnoAcquisto,
+                    AnnoRealizzazione,
+                    Tipo,
+                    NumeroSala
+                ])
+
+            return JsonResponse({'success': 'Inserimento riuscito!'})
+
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+
+    return JsonResponse({'error': 'Metodo non consentito'}, status=405)
+
+@csrf_exempt
+def delete_opera(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            Opera = data.get('codiceDelete')
+
+            if not Opera:
+                return JsonResponse({'error': 'Parametro mancante: codiceDelete'}, status=400)
+
+            # Separazione: "TitoloOpera - Cognome Nome"
+            if '-' not in Opera:
+                return JsonResponse({'error': 'Formato codiceDelete non valido'}, status=400)
+
+            titolo_autore = Opera.split('-')
+            TitoloOpera = titolo_autore[0].strip()
+            AutoreOpera = titolo_autore[1].strip()
+
+            parti = AutoreOpera.split()
+            if len(parti) < 2:
+                return JsonResponse({'error': 'Formato autore non valido'}, status=400)
+
+            cognome = parti[0]
+            nome = " ".join(parti[1:])  # supporto nomi composti
+
+            with connection.cursor() as cursor:
+                # Ricava ID opera
+                select_query = """
+                    SELECT opera.codice
+                    FROM opera
+                    JOIN autore ON autore.codice = opera.autore
+                    WHERE opera.titolo = %s AND autore.nome = %s AND autore.cognome = %s
+                """
+                cursor.execute(select_query, [TitoloOpera, nome, cognome])
+                row = cursor.fetchone()
+
+                if not row:
+                    return JsonResponse({'error': 'Opera non trovata'}, status=404)
+
+                codice_opera = row[0]
+
+                # Esegui eliminazione
+                delete_query = "DELETE FROM opera WHERE codice = %s"
+                cursor.execute(delete_query, [codice_opera])
+
+            return JsonResponse({'success': 'Eliminazione dei dati riuscita!'})
+
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+
+    return JsonResponse({'error': 'Metodo non consentito'}, status=405)
+
+@csrf_exempt
+def update_opera(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+
+            codice_update = data.get('codiceUpdate')
+            nome_autore = data.get('autoreUpdate')
+            titolo = data.get('titoloUpdate')
+            anno_acquisto = data.get('AnnoAquistoUpdate')
+            anno_realizzazione = data.get('AnnoRealizzazioneUpdate')
+            tipo = data.get('tipoUpdate')
+            nome_sala = data.get('NumeroSalaUpdate')
+
+            if not codice_update or '-' not in codice_update:
+                return JsonResponse({'error': 'Parametro codiceUpdate mancante o formato errato'}, status=400)
+
+            # Estrazione titolo e autore
+            titolo_opera = codice_update.split('-')[0].strip()
+            autore_opera = codice_update.split('-')[1].strip()
+
+            parti = autore_opera.split()
+            if len(parti) < 2:
+                return JsonResponse({'error': 'Formato autore non valido'}, status=400)
+
+            cognome = parti[0]
+            nome = " ".join(parti[1:])
+
+            with connection.cursor() as cursor:
+                # Ricava codice opera
+                cursor.execute("""
+                    SELECT opera.codice
+                    FROM opera
+                    JOIN autore ON autore.codice = opera.autore
+                    WHERE opera.titolo = %s AND autore.nome = %s AND autore.cognome = %s
+                """, [titolo_opera, nome, cognome])
+                row = cursor.fetchone()
+
+                if not row:
+                    return JsonResponse({'error': 'Opera non trovata'}, status=404)
+
+                codice_opera = row[0]
+
+                # Ricava id autore
+                autore_id = None
+                if nome_autore and '-' in nome_autore:
+                    autore_id = nome_autore.split('-')[0].strip()
+
+                # Ricava numero sala
+                numero_sala = None
+                if nome_sala:
+                    cursor.execute("SELECT numero FROM sala WHERE nome = %s", [nome_sala])
+                    sala_row = cursor.fetchone()
+                    if sala_row:
+                        numero_sala = sala_row[0]
+
+                # Costruzione della query dinamica
+                update_fields = []
+                params = []
+
+                if autore_id:
+                    update_fields.append("autore = %s")
+                    params.append(autore_id)
+                if titolo:
+                    update_fields.append("titolo = %s")
+                    params.append(titolo)
+                if anno_acquisto:
+                    update_fields.append("annoacquisto = %s")
+                    params.append(anno_acquisto)
+                if anno_realizzazione:
+                    update_fields.append("annorealizzazione = %s")
+                    params.append(anno_realizzazione)
+                if tipo:
+                    update_fields.append("tipo = %s")
+                    params.append(tipo)
+                if numero_sala:
+                    update_fields.append("espostainsala = %s")
+                    params.append(numero_sala)
+
+                if not update_fields:
+                    return JsonResponse({'error': 'Nessun campo da aggiornare'}, status=400)
+
+                query = f"UPDATE opera SET {', '.join(update_fields)} WHERE codice = %s"
+                params.append(codice_opera)
+
+                cursor.execute(query, params)
+
+            return JsonResponse({'success': 'Aggiornamento dei dati riuscito!'})
 
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
