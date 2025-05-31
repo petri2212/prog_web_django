@@ -94,7 +94,7 @@ function generaRighe(data) {
                         <div class="col">${data.dataNascita}  </div>
                         <div class="col">${data.tipo} </div>
                         <div class="col">🟩 In vita</div>
-                        <div class="col"><a href="Opera.php?id_1=${data.codice}">${data.num_opere}</a></div>
+                        <div class="col"><a href="/museo/opera?id_1=${data.codice}">${data.num_opere}</a></div>
                         
                      </li>
                    `;
@@ -110,7 +110,7 @@ function generaRighe(data) {
                         <div class="col">${data.dataNascita}  </div>
                         <div class="col">${data.tipo} </div>
                         <div class="col">✞ ${data.dataMorte}</div>
-                        <div class="col"><a href="Opera.php?id_1=${data.codice}">${data.num_opere}</a></div>
+                        <div class="col"><a href="/museo/opera?id_1=${data.codice}">${data.num_opere}</a></div>
                      </li>
                    `;
          }
