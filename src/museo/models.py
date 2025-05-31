@@ -12,3 +12,12 @@ class Opera(models.Model):
     class Meta:
         db_table = 'opera'   # nome esatto della tabella in PostgreSQL
         managed = False            # Django NON gestisce questa tabella (no migrazioni)
+
+
+class Tema(models.Model):
+    codice = models.IntegerField(primary_key=True)
+    descrizione = models.TextField()
+
+    class Meta:
+        db_table = 'tema'   # nome esatto della tabella in PostgreSQL
+        managed = False            # Django NON gestisce questa tabella (no migrazioni)
