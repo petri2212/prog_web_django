@@ -10,4 +10,6 @@
 - cd to firs src  
 - python manage.py runserver
 ```
+## [ Documentation](documentation/scelte_di_progetto.md)
 
+At this link you will find some project decisions
