@@ -35,7 +35,8 @@ echo DB_PORT=%DB_PORT%
 
 :: Attiva ambiente virtuale (se usi venv)
 echo Attivazione ambiente virtuale...
-call venv\Scripts\activate
+python -m venv .venv
+call .venv\Scripts\activate.bat
 
 :: Installa dipendenze se necessario
 pip install -r requirements.txt
@@ -46,6 +47,8 @@ python ..\prog_web_django\src\manage.py migrate
 
 :: Avvia il server
 echo Avvio del server Django su http://127.0.0.1:8000
+cmd /c start "" http://127.0.0.1:8000/museo/autore
 python ..\prog_web_django\src\manage.py runserver
+
 
 pause

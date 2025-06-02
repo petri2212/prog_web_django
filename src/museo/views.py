@@ -77,7 +77,7 @@ def select_sala(request):
                 query = """
                 SELECT numero, nome, superficie, temaSala, descrizione, COUNT(espostaInSala) AS Quadri_in_sala
                 FROM sala
-                JOIN  tema ON codice = temaSala JOIN opera ON sala.numero = opera.espostaInSala 
+                LEFT JOIN  tema ON codice = temaSala LEFT JOIN opera ON sala.numero = opera.espostaInSala 
                 WHERE 1=1
                 """
                 params = []
@@ -140,7 +140,7 @@ def select_autore(request):
             with connection.cursor() as cursor:
                 query = """
                 SELECT autore.codice, nome, cognome, nazione, datanascita, autore.tipo, datamorte, COUNT(opera.codice) AS num_opere
-                FROM autore JOIN opera ON autore.codice = opera.autore 
+                FROM autore LEFT JOIN opera ON autore.codice = opera.autore 
                 WHERE 1=1
                 """
                 params = []
@@ -217,7 +217,7 @@ def select_opera(request):
             with connection.cursor() as cursor:
                 query = """
                 SELECT opera.codice, autore, CONCAT(autore.nome, ' ', autore.cognome) AS full_name, titolo, annoAcquisto, annoRealizzazione, opera.tipo, espostaInSala, sala.nome AS nome_sala 
-                FROM opera JOIN sala ON opera.espostaInSala = sala.numero JOIN autore ON opera.autore = autore.codice 
+                FROM opera LEFT JOIN sala ON opera.espostaInSala = sala.numero LEFT JOIN autore ON opera.autore = autore.codice 
                 WHERE 1=1
                 """
                 params = []
@@ -361,7 +361,7 @@ def delete_opera(request):
                 select_query = """
                     SELECT opera.codice
                     FROM opera
-                    JOIN autore ON autore.codice = opera.autore
+                    LEFT JOIN autore ON autore.codice = opera.autore
                     WHERE opera.titolo = %s AND autore.nome = %s AND autore.cognome = %s
                 """
                 cursor.execute(select_query, [TitoloOpera, nome, cognome])
@@ -416,7 +416,7 @@ def update_opera(request):
                 cursor.execute("""
                     SELECT opera.codice
                     FROM opera
-                    JOIN autore ON autore.codice = opera.autore
+                    LEFT JOIN autore ON autore.codice = opera.autore
                     WHERE opera.titolo = %s AND autore.nome = %s AND autore.cognome = %s
                 """, [titolo_opera, nome, cognome])
                 row = cursor.fetchone()

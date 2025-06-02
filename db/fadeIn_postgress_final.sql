@@ -1185,9 +1185,7 @@ INSERT INTO sala (numero, nome, superficie, temaSala) VALUES
 
 (19, 'Corte delle Idee', 410, 9),
 
-(20, 'Atrio Secondario', 85, 7),
-
-(21, 'AAAAAAAAA', 1, 1)
+(20, 'Atrio Secondario', 85, 7)
 
 ON CONFLICT (numero) DO NOTHING;
 
