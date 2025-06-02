@@ -9,7 +9,7 @@ set /p DB_HOST=Host [localhost]:
 if "%DB_HOST%"=="" set DB_HOST=localhost
 set /p DB_PORT=Porta [5432]:
 if "%DB_PORT%"=="" set DB_PORT=5432
-set SQL_FILE=..\prog_web_django\db\fadeIn_postgress_clean1.sql
+set SQL_FILE=..\prog_web_django\db\fadeIn_postgress_final.sql
 
 :: Crea database se non esiste
 echo Creazione database %DB_NAME%...
