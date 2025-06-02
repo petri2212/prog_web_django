@@ -57,243 +57,124 @@ CREATE TABLE IF NOT EXISTS autore (
 INSERT INTO autore (codice, nome, cognome, nazione, dataNascita, tipo, dataMorte) VALUES
 
 (1, 'Sofia', 'Rinaldi', 'Italia', '1980-04-12', 'vivo', NULL),
-
 (2, 'Lucas', 'Moreau', 'Francia', '1972-09-25', 'vivo', NULL),
-
 (3, 'Anna', 'Fischer', 'Germania', '1955-03-10', 'morto', '2020-06-14'),
-
 (4, 'Miguel', 'Santos', 'Spagna', '1938-11-02', 'morto', '2005-01-20'),
-
 (5, 'Emily', 'Carter', 'Stati Uniti', '1990-08-30', 'vivo', NULL),
-
 (6, 'Kenji', 'Takahashi', 'Giappone', '1944-02-17', 'morto', '2010-12-09'),
-
 (7, 'Ali', 'Hassan', 'Egitto', '1985-06-21', 'vivo', NULL),
-
-(8, 'Nina', 'KovaÄ', 'Croazia', '1978-07-15', 'vivo', NULL),
-
-(9, 'Robert', 'MÃ¼ller', 'Germania', '1930-05-03', 'morto', '1998-04-17'),
-
+(8, 'Nina', 'Kovac', 'Croazia', '1978-07-15', 'vivo', NULL),
+(9, 'Robert', 'Mueller', 'Germania', '1930-05-03', 'morto', '1998-04-17'),
 (10, 'Chiara', 'Bianchi', 'Italia', '1992-01-05', 'vivo', NULL),
-
-(11, 'Jorge', 'RamÃ­rez', 'Argentina', '1960-09-11', 'morto', '2018-07-22'),
-
+(11, 'Jorge', 'Ramirez', 'Argentina', '1960-09-11', 'morto', '2018-07-22'),
 (12, 'Helena', 'Novak', 'Repubblica Ceca', '1983-10-19', 'vivo', NULL),
-
 (13, 'Tom', 'Anderson', 'Regno Unito', '1948-06-08', 'morto', '2012-03-03'),
-
-(14, 'LÃ©a', 'Dubois', 'Francia', '1995-12-28', 'vivo', NULL),
-
+(14, 'Lea', 'Dubois', 'Francia', '1995-12-28', 'vivo', NULL),
 (15, 'Omar', 'Farouk', 'Marocco', '1975-05-14', 'vivo', NULL),
-
 (16, 'Irina', 'Petrova', 'Russia', '1935-02-02', 'morto', '2000-09-01'),
-
 (17, 'Daniel', 'Smith', 'Canada', '1969-11-26', 'vivo', NULL),
-
 (18, 'Sara', 'Moretti', 'Italia', '1920-07-19', 'morto', '1995-05-30'),
-
-(19, 'JoÃ£o', 'Pereira', 'Portogallo', '1987-03-03', 'vivo', NULL),
-
+(19, 'Joao', 'Pereira', 'Portogallo', '1987-03-03', 'vivo', NULL),
 (20, 'Aisha', 'Al-Fulan', 'Emirati Arabi', '1952-10-10', 'morto', '2015-08-18'),
-
 (21, 'Luca', 'Ferrari', 'Italia', '1971-09-22', 'morto', '2015-03-10'),
-
 (22, 'Giulia', 'Rossi', 'Italia', '1986-11-14', 'vivo', NULL),
-
 (23, 'John', 'Doe', 'Stati Uniti', '1960-05-25', 'morto', '2009-12-18'),
-
-(24, 'Maria', 'MartÃ­nez', 'Spagna', '1994-02-03', 'vivo', NULL),
-
+(24, 'Maria', 'Martinez', 'Spagna', '1994-02-03', 'vivo', NULL),
 (25, 'James', 'Smith', 'Regno Unito', '1980-08-12', 'vivo', NULL),
-
 (26, 'Emma', 'Johnson', 'Australia', '1992-03-06', 'vivo', NULL),
-
-(27, 'Carlos', 'GarcÃ­a', 'Messico', '1965-07-29', 'morto', '2021-11-05'),
-
+(27, 'Carlos', 'Garcia', 'Messico', '1965-07-29', 'morto', '2021-11-05'),
 (28, 'Laura', 'Miller', 'Canada', '1990-04-14', 'vivo', NULL),
-
 (29, 'David', 'Taylor', 'Stati Uniti', '1982-01-18', 'morto', '2016-08-22'),
-
 (30, 'Sophie', 'Davies', 'Regno Unito', '1978-11-29', 'vivo', NULL),
-
 (31, 'Nina', 'Li', 'Cina', '1998-02-01', 'vivo', NULL),
-
 (32, 'Yusuf', 'Khan', 'India', '1945-10-17', 'morto', '2012-05-06'),
-
 (33, 'Olivia', 'Wilson', 'Canada', '1989-12-04', 'vivo', NULL),
-
 (34, 'Hiroshi', 'Tanaka', 'Giappone', '1963-09-21', 'vivo', NULL),
-
 (35, 'Isabella', 'Martins', 'Brasile', '1974-04-30', 'morto', '2018-10-11'),
-
 (36, 'William', 'Brown', 'Stati Uniti', '1973-06-18', 'morto', '2010-03-27'),
-
 (37, 'Alexander', 'King', 'Canada', '1995-01-23', 'vivo', NULL),
-
-(38, 'Marta', 'Kowalski', 'Polonia', '1981-12-14', 'morto', '2020-02-17'),
-
+(38, 'Marta', 'Kowalska', 'Polonia', '1981-12-14', 'morto', '2020-02-17'),
 (39, 'Richard', 'Anderson', 'Australia', '1983-11-04', 'vivo', NULL),
-
-(40, 'Ewa', 'ZieliÅ„ska', 'Polonia', '1987-09-09', 'morto', '2022-05-12'),
-
+(40, 'Ewa', 'Zielinska', 'Polonia', '1987-09-09', 'morto', '2022-05-12'),
 (41, 'Marco', 'Bianchi', 'Italia', '1970-07-19', 'morto', '2014-02-22'),
-
 (42, 'Alice', 'Taylor', 'Stati Uniti', '1990-10-25', 'vivo', NULL),
-
-(43, 'Miguel', 'SÃ¡nchez', 'Spagna', '1967-01-10', 'vivo', NULL),
-
+(43, 'Miguel', 'Sanchez', 'Spagna', '1967-01-10', 'vivo', NULL),
 (44, 'Sophia', 'Harris', 'Canada', '1993-04-20', 'morto', '2020-11-08'),
-
 (45, 'Ethan', 'Davis', 'Stati Uniti', '1988-06-15', 'vivo', NULL),
-
 (46, 'Nadia', 'Nguyen', 'Vietnam', '1985-03-12', 'morto', '2019-07-09'),
-
 (47, 'Liam', 'Lopez', 'Messico', '1982-11-23', 'vivo', NULL),
-
 (48, 'Catherine', 'Wilson', 'Australia', '1995-02-01', 'morto', '2022-05-20'),
-
 (49, 'Noah', 'Moore', 'Regno Unito', '1989-09-07', 'morto', '2017-03-11'),
-
 (50, 'Charlotte', 'Martin', 'Francia', '1977-08-09', 'vivo', NULL),
-
 (51, 'Lucas', 'Perez', 'Spagna', '1983-01-30', 'morto', '2016-06-15'),
-
 (52, 'Eva', 'Thompson', 'Stati Uniti', '1997-11-12', 'vivo', NULL),
-
 (53, 'Antonio', 'Garcia', 'Messico', '1962-06-26', 'vivo', NULL),
-
 (54, 'Amira', 'Sayed', 'Egitto', '1990-05-18', 'morto', '2021-01-22'),
-
 (55, 'John', 'Scott', 'Canada', '1992-03-03', 'vivo', NULL),
-
 (56, 'Sara', 'Adams', 'Regno Unito', '1980-09-28', 'morto', '2015-04-18'),
-
 (57, 'George', 'Baker', 'Australia', '1974-12-02', 'vivo', NULL),
-
 (58, 'Linda', 'Walker', 'Stati Uniti', '1985-08-21', 'vivo', NULL),
-
 (59, 'David', 'Hernandez', 'Spagna', '1981-06-04', 'morto', '2019-09-30'),
-
 (60, 'Clara', 'White', 'Canada', '1993-11-13', 'vivo', NULL),
-
 (61, 'Amos', 'Brown', 'Stati Uniti', '1970-02-25', 'morto', '2015-08-04'),
-
-(62, 'Olga', 'MÃ¼ller', 'Germania', '1980-12-10', 'vivo', NULL),
-
+(62, 'Olga', 'Mueller', 'Germania', '1980-12-10', 'vivo', NULL),
 (63, 'Michael', 'Davis', 'Australia', '1994-04-19', 'morto', '2020-10-12'),
-
 (64, 'Jessica', 'Martinez', 'Spagna', '1990-07-03', 'vivo', NULL),
-
 (65, 'Robert', 'Harris', 'Regno Unito', '1985-02-22', 'vivo', NULL),
-
 (66, 'Emily', 'White', 'Stati Uniti', '1982-01-11', 'morto', '2017-11-05'),
-
 (67, 'Leo', 'Garcia', 'Messico', '1978-08-16', 'vivo', NULL),
-
 (68, 'Claire', 'Wilson', 'Francia', '1992-04-29', 'morto', '2021-02-17'),
-
 (69, 'Gabriel', 'Sanchez', 'Colombia', '1971-10-30', 'vivo', NULL),
-
 (70, 'Barbara', 'Taylor', 'Australia', '1989-01-03', 'vivo', NULL),
-
 (71, 'Rachel', 'Anderson', 'Canada', '1993-11-12', 'morto', '2021-06-30'),
-
 (72, 'Hugo', 'Morales', 'Messico', '1980-09-13', 'vivo', NULL),
-
 (73, 'Lucas', 'Harris', 'Stati Uniti', '1997-06-22', 'morto', '2022-05-09'),
-
 (74, 'Adriana', 'Bianchi', 'Italia', '1986-07-05', 'vivo', NULL),
-
 (75, 'Max', 'Mitchell', 'Regno Unito', '1979-10-20', 'morto', '2016-12-28'),
-
 (76, 'Oliver', 'Martinez', 'Spagna', '1990-11-11', 'vivo', NULL),
-
 (77, 'Alicia', 'Roberts', 'Canada', '1983-04-06', 'morto', '2019-03-10'),
-
 (78, 'Luis', 'Perez', 'Argentina', '1975-12-18', 'vivo', NULL),
-
 (79, 'Daniela', 'Evans', 'Australia', '1995-01-21', 'morto', '2019-07-30'),
-
 (80, 'Lorenzo', 'Garcia', 'Italia', '1980-05-24', 'morto', '2016-10-14'),
-
 (81, 'Sophia', 'Clark', 'Stati Uniti', '1991-10-02', 'vivo', NULL),
-
 (82, 'Carmen', 'Lopez', 'Spagna', '1985-03-11', 'vivo', NULL),
-
 (83, 'William', 'Young', 'Regno Unito', '1974-08-23', 'morto', '2020-11-09'),
-
-(84, 'Leonardo', 'MartÃ­nez', 'Argentina', '1980-06-14', 'vivo', NULL),
-
-(85, 'Oscar', 'PÃ©rez', 'Cile', '1982-11-28', 'morto', '2018-05-11'),
-
-(86, 'Carla', 'RodrÃ­guez', 'Spagna', '1977-01-03', 'vivo', NULL),
-
+(84, 'Leonardo', 'Martinez', 'Argentina', '1980-06-14', 'vivo', NULL),
+(85, 'Oscar', 'Perez', 'Cile', '1982-11-28', 'morto', '2018-05-11'),
+(86, 'Carla', 'Rodriguez', 'Spagna', '1977-01-03', 'vivo', NULL),
 (87, 'Victoria', 'Miller', 'Australia', '1986-09-14', 'vivo', NULL),
-
-(88, 'Marcelo', 'GonzÃ¡lez', 'Colombia', '1991-04-27', 'morto', '2015-01-22'),
-
+(88, 'Marcelo', 'Gonzalez', 'Colombia', '1991-04-27', 'morto', '2015-01-22'),
 (89, 'Amelia', 'Kim', 'Corea del Sud', '1993-05-16', 'vivo', NULL),
-
 (90, 'Eva', 'Brown', 'Stati Uniti', '1984-02-12', 'morto', '2021-10-03'),
-
 (91, 'Christopher', 'White', 'Canada', '1978-10-08', 'vivo', NULL),
-
-(92, 'Emilia', 'GonzÃ¡lez', 'Messico', '1991-08-22', 'vivo', NULL),
-
+(92, 'Emilia', 'Gonzalez', 'Messico', '1991-08-22', 'vivo', NULL),
 (93, 'Joshua', 'Evans', 'Stati Uniti', '1989-05-18', 'vivo', NULL),
-
 (94, 'Isabella', 'Lopez', 'Spagna', '1980-07-26', 'morto', '2016-06-09'),
-
 (95, 'David', 'Brown', 'Regno Unito', '1992-04-16', 'vivo', NULL),
-
 (96, 'Charlotte', 'Miller', 'Francia', '1990-12-21', 'morto', '2019-03-05'),
-
-(97, 'Gabrielle', 'RodrÃ­guez', 'Messico', '1983-10-12', 'morto', '2021-05-18'),
-
+(97, 'Gabrielle', 'Rodriguez', 'Messico', '1983-10-12', 'morto', '2021-05-18'),
 (98, 'Aiden', 'Taylor', 'Canada', '1991-01-30', 'vivo', NULL),
-
 (99, 'Santiago', 'Morales', 'Cile', '1981-07-04', 'morto', '2017-12-14'),
-
 (100, 'Maya', 'Johnson', 'Australia', '1984-03-13', 'vivo', NULL),
-
 (101, 'Luca', 'Verdi', 'Italia', '1973-05-05', 'morto', '2020-11-10'),
-
 (102, 'Emily', 'Robinson', 'Stati Uniti', '1990-03-14', 'vivo', NULL),
-
 (103, 'Antonio', 'Santos', 'Spagna', '1987-09-09', 'morto', '2021-02-23'),
-
 (104, 'Sophie', 'Taylor', 'Australia', '1993-06-27', 'vivo', NULL),
-
 (105, 'Maxim', 'Ivanov', 'Russia', '1982-01-16', 'morto', '2017-06-10'),
-
-(106, 'Lucas', 'GonzÃ¡lez', 'Messico', '1979-04-10', 'vivo', NULL),
-
+(106, 'Lucas', 'Gonzalez', 'Messico', '1979-04-10', 'vivo', NULL),
 (107, 'Nina', 'Hernandez', 'Colombia', '1994-11-12', 'morto', '2021-01-15'),
-
 (108, 'Katherine', 'Johnson', 'Stati Uniti', '1981-02-05', 'vivo', NULL),
-
 (109, 'Oliver', 'Baker', 'Regno Unito', '1986-08-23', 'vivo', NULL),
-
 (110, 'Santiago', 'Rojas', 'Argentina', '1983-09-18', 'vivo', NULL),
-
 (111, 'Laura', 'Miller', 'Canada', '1976-07-11', 'morto', '2019-11-01'),
-
 (112, 'Javier', 'Perez', 'Spagna', '1991-10-04', 'vivo', NULL),
-
 (113, 'Emma', 'Khan', 'Pakistan', '1984-05-19', 'morto', '2020-04-06'),
-
 (114, 'Daniel', 'Moore', 'Australia', '1990-08-30', 'morto', '2021-03-12'),
-
 (115, 'Alicia', 'White', 'Stati Uniti', '1995-07-03', 'vivo', NULL),
-
 (116, 'Giovanni', 'Costa', 'Italia', '1990-01-14', 'vivo', NULL),
-
 (117, 'Clara', 'Martinez', 'Spagna', '1977-03-27', 'vivo', NULL),
-
 (118, 'David', 'Lopez', 'Messico', '1988-06-20', 'morto', '2018-01-11'),
-
 (119, 'Jessica', 'Williams', 'Regno Unito', '1992-11-13', 'vivo', NULL),
-
 (120, 'Samuel', 'Adams', 'Stati Uniti', '1981-04-15', 'morto', '2015-09-17')
 
 ON CONFLICT (codice) DO NOTHING;
