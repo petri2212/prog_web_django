@@ -42,7 +42,7 @@ def select_tema(request):
                     query += " AND tema.codice = %s"
                     params.append(codice)
 
-                query += "GROUP BY tema.codice ORDER BY tema.codice ASC "
+                query += " GROUP BY tema.codice ORDER BY tema.codice ASC "
 
                 cursor.execute(query, params)
                 risultati = cursor.fetchall()
@@ -98,7 +98,7 @@ def select_sala(request):
                     query += " AND numero = %s"
                     params.append(codice)
 
-                query += "GROUP BY numero, tema.descrizione ORDER BY numero ASC "
+                query += " GROUP BY numero, tema.descrizione ORDER BY numero ASC "
 
                 cursor.execute(query, params)
                 risultati = cursor.fetchall()
@@ -172,7 +172,7 @@ def select_autore(request):
                     query += " AND autore.tipo = %s"
                     params.append(tipo)
 
-                query += "GROUP BY autore.codice ORDER BY autore.codice ASC "
+                query += " GROUP BY autore.codice ORDER BY autore.codice ASC "
 
                 cursor.execute(query, params)
                 risultati = cursor.fetchall()
@@ -252,7 +252,7 @@ def select_opera(request):
                 if nomeSala:
                     query += " AND sala.nome ILIKE %s"
                     params.append(f"%{nomeSala}%")
-                query += "GROUP BY opera.codice, full_name, sala.nome  ORDER BY opera.codice ASC "
+                query += " GROUP BY opera.codice, full_name, sala.nome  ORDER BY opera.codice ASC "
 
                 cursor.execute(query, params)
                 risultati = cursor.fetchall()

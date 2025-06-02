@@ -21,7 +21,7 @@ psql -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -c "CREATE DATABASE %DB_NAME%;" || e
 echo Importazione dati nel database...
 set /p DB_PASSWORD=Inserisci la password per l'utente %DB_USER%:
 set PGPASSWORD=%DB_PASSWORD%
-psql -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -d %DB_NAME% -f %SQL_FILE%
+psql -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -d %DB_NAME% -f %SQL_FILE% 
 
 :: Crea il file .env (se non esiste)
 echo Creazione del file .env...
