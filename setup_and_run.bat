@@ -1,10 +1,17 @@
 @echo off
 setlocal
 
+:: Verifica che il comando "psql" sia disponibile
+where psql >nul 2>&1
+if errorlevel 1 (
+    echo Errore: il comando "psql" non è stato trovato. Assicurati che PostgreSQL sia installato e che "psql" sia nel PATH.
+    pause
+    exit /b 1
+)
+
 :: CONFIGURAZIONE
 set DB_NAME=fadein
 set DB_USER=postgres
-set /p DB_PASSWORD=Inserisci la password per l'utente postgres: 
 set /p DB_HOST=Host [localhost]:
 if "%DB_HOST%"=="" set DB_HOST=localhost
 set /p DB_PORT=Porta [5432]:
@@ -13,13 +20,13 @@ set SQL_FILE=..\prog_web_django\db\fadeIn_postgress_final.sql
 
 :: Crea database se non esiste
 echo Creazione database %DB_NAME%...
+set /p DB_PASSWORD=Inserisci la password per l'utente postgres: 
 set PGPASSWORD=%DB_PASSWORD%
 psql -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -c "CREATE DATABASE %DB_NAME%;" || echo Il database potrebbe esistere già.
 
 
 :: Importa dati nel database
 echo Importazione dati nel database...
-set /p DB_PASSWORD=Inserisci la password per l'utente %DB_USER%:
 set PGPASSWORD=%DB_PASSWORD%
 psql -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -d %DB_NAME% -f %SQL_FILE% 
 
